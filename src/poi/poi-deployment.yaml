@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poi
+  labels:
+    app: poi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: poi
+  template:
+    metadata:
+      labels:
+        app: poi
+    spec:
+      containers:
+        - name: poi
+          image: registrykdz7459.azurecr.io/tripinsights/poi:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SQL_SERVER
+              value: "sqlserverkdz7459.database.windows.net"
+            - name: SQL_USER
+              value: "sqladminkDz7459"
+            - name: SQL_PASSWORD
+              value: "cE4uk4Hh7"
+            - name: SQL_DBNAME
+              value: "mydrivingDB"
+            - name: WEB_PORT
+              value: "8080"
+            - name: WEB_SERVER_BASE_URI
+              value: "http://0.0.0.0"

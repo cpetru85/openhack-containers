@@ -1,3 +1,3 @@
 $MYACR=registrykdz7459
 
-az aks create -n myAKSCluster -g teamResources --generate-ssh-keys --node-count 1 --enable-addons monitoring --attach-acr $MYACR
+az aks create -g teamResources -n MyManagedCluster --generate-ssh-keys --node-count 1 --enable-addons monitoring --attach-acr registrykdz7459 --enable-aad --aad-admin-group-object-ids b34de120-6cdb-452d-bced-0a6f4c28cab5

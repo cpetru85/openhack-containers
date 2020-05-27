@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: tripsviewer
+  name: tripsviewer
+spec:
+  ports:
+    - name: 80-8080
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: tripsviewer
+  type: LoadBalancer
+status:
+  loadBalancer: {}

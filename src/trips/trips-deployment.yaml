@@ -18,7 +18,7 @@ spec:
         - name: trips
           image: registrykdz7459.azurecr.io/tripinsights/trips:1.0
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           env:
             - name: SQL_SERVER
               value: "sqlserverkdz7459.database.windows.net"

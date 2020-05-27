@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-java
+  labels:
+    app: user-java
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-java
+  template:
+    metadata:
+      labels:
+        app: user-java
+    spec:
+      containers:
+        - name: trips
+          image: registrykdz7459.azurecr.io/tripinsights/user-java:1.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SQL_SERVER
+              value: "sqlserverkdz7459.database.windows.net"
+            - name: SQL_USER
+              value: "sqladminkDz7459"
+            - name: SQL_PASSWORD
+              value: "cE4uk4Hh7"
+            - name: SQL_DBNAME
+              value: "mydrivingDB"

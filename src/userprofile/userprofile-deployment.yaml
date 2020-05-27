@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userprofile
+  labels:
+    app: userprofile
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: userprofile
+  template:
+    metadata:
+      labels:
+        app: userprofile
+    spec:
+      containers:
+        - name: userprofile
+          image: registrykdz7459.azurecr.io/tripinsights/userprofile:1.0
+          ports:
+            - containerPort: 80
+          env:
+            - name: SQL_SERVER
+              value: "sqlserverkdz7459.database.windows.net"
+            - name: SQL_USER
+              value: "sqladminkDz7459"
+            - name: SQL_PASSWORD
+              value: "cE4uk4Hh7"
+            - name: SQL_DBNAME
+              value: "mydrivingDB"
+            - name: PORT
+              value: "80"

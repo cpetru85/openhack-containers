@@ -12,4 +12,6 @@ kubectl apply \
     -f src/tripviewer/tripviewer-deployment.yaml \
     -f src/tripviewer/tripviewer-service.yaml \
     -f src/userprofile/userprofile-deployment.yaml \
-    -f src/userprofile/userprofile-service.yaml
+    -f src/userprofile/userprofile-service.yaml \
+    -f deployment/web-namespace.yaml \
+    -f deployment/api-namespace.yaml
